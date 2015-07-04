@@ -3,22 +3,21 @@
 		id : '',
 		name : '',
 		boundaries : '',
-		visitors : [{
-				originName : '',
+		activities : [{
+			name : '',
+			id : '',
+			trends : [{
+				year : '',
+				number : ''
+			}],
+			visitors : [{
+				id : '',
+				origin : '',
 				spend : '',
 				avgNights : '',
-				totalPopulation : '',
-				activities : [{
-					activity : {
-						name : '',
-						currentNumber : '',
-						currentPercentage : '',
-						trends : [{
-							year : '',
-							number: ''
-						}]
-					}
-				}]
+				totalPopulation : ''
+			}]
+		
 		}]
 	}
 }
