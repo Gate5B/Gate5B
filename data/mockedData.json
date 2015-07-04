@@ -1,0 +1,53 @@
+{
+	region : {
+		id : 1,
+		name : 'Auckland',
+		boundaries : '',
+		activities : [{
+			name : 'Fishing',
+			id : 1,
+			trends : [{
+				year : '1',
+				number : '50'
+			}],
+			visitors : [{
+				id : 1,
+				origin : 'AUS',
+				spend : 101.56,
+				avgNights : 5,
+				totalPopulation : '555'
+			},
+			{
+				id : 2,
+				origin : 'CHN',
+				spend : 56.56,
+				avgNights : 2,
+				totalPopulation : '30'
+			}]
+		
+		},
+		{
+			name : 'Tramping',
+			id : 2,
+			trends : [{
+				year : '1',
+				number : '50'
+			}],
+			visitors : [{
+				id : 3,
+				origin : 'AUS',
+				spend : 10.56,
+				avgNights : 53,
+				totalPopulation : '5552'
+			},
+			{
+				id : 4,
+				origin : 'CHN',
+				spend : 561.56,
+				avgNights : 23,
+				totalPopulation : 301
+			}]
+		
+		}]
+	}
+}
