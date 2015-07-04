@@ -10,14 +10,13 @@
 				year : '',
 				number : ''
 			}],
-			visitors : [{
+		}]
+		visitors : [{
 				id : '',
 				origin : '',
 				spend : '',
 				avgNights : '',
 				totalPopulation : ''
 			}]
-		
-		}]
 	}
 }
