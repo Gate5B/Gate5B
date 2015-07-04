@@ -4,8 +4,7 @@
 		name : '',
 		boundaries : '',
 		visitors : [{
-			origin : {
-				name : '',
+				originName : '',
 				spend : '',
 				avgNights : '',
 				totalPopulation : '',
@@ -20,7 +19,6 @@
 						}]
 					}
 				}]
-			}
 		}]
 	}
 }
