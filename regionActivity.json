@@ -1,0 +1,26 @@
+{
+	region : {
+		id : '',
+		name : '',
+		boundaries : '',
+		visitors : [{
+			origin : {
+				name : '',
+				spend : '',
+				avgNights : '',
+				totalPopulation : '',
+				activities : [{
+					activity : {
+						name : '',
+						currentNumber : '',
+						currentPercentage : '',
+						trends : [{
+							year : '',
+							number: ''
+						}]
+					}
+				}]
+			}
+		}]
+	}
+}
