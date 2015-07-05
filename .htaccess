@@ -1,0 +1,13 @@
+RewriteEngine On
+
+
+RewriteRule ^spend(.*)$   /opportunity$1 [R=301,L]
+
+RewriteRule   ^map/?$   php/index_new.php  [NC]
+RewriteRule   ^activity/([0-9]+)(/.*)?$   php/activity.php?tla=$1  [NC]
+RewriteRule   ^activity_data/([0-9]+)(/.*)?$   php/activity_data.php?tla=$1  [NC]
+RewriteRule   ^opportunity/([0-9]+)/([0-9]+)(/.*)?$   php/spend.php?tla=$1&activity=$2  [NC]
+RewriteRule   ^opportunity/([0-9]+)(/.*)?$   php/spend.php?tla=$1  [NC]
+
+
+RewriteRule   ^new/?$   php/index_new.php  [NC]

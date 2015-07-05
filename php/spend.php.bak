@@ -22,7 +22,7 @@ include('_digitalnz.php');
     <div class="navbar-header">
 			<div class="col-sm-4 col-xs-6 ">
 				<ul class="nav navbar-nav">
-	        <li><a href="/activity/<?php echo $tla_id; ?>/<?php echo $tla['name']; ?>">&larr; Back</a></li>
+	        <li><a href="#">&larr; Back</a></li>
 				</ul>
 		</div>
 			<div class="col-sm-4 col-sm-offset-3 col-xs-6 ">

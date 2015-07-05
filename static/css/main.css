@@ -1,0 +1,146 @@
+body {
+  padding-bottom: 30px;
+  color: #343739;
+}
+.activity-bubble {
+  cursor: pointer;
+}
+.activity-bubble-text {
+  color: #343739;
+  background-color: #FFFFFF;
+  padding: 5px;
+  cursor: pointer;
+  border: 1px solid #343739;
+}
+.activity-bubble-icon {
+	fill: #FFFFFF;
+	cursor: pointer;
+}
+/* opportunity page */
+.opportunity-panel{
+	min-width: 200px;
+	max-width: 200px;
+	min-height: 200px;
+	max-height: 200px;
+	float:left;
+	display:inline;
+	background:yellow;
+	margin:5px;
+	padding:5px;
+
+}
+.opportunity-panel-title{
+	font-size:15px;
+	font-weight:bold;
+
+}
+
+
+.info-box ul{
+	list-style-type:none;
+
+	width:100%;
+}
+.info-box li{
+	list-style-type:none;
+	float:left;
+
+}
+.opportunity-stay ul{
+	border:1px solid black;
+	min-width:200px;
+}
+.opportunity-population{
+	max-width:100px;
+	min-width:100px;
+	max-height:100px;
+	min-height:100px;
+	display:inline-block;
+	background:#153f41;
+  color:white;
+  border-radius:50%;
+	text-align:center;
+	padding:20px;
+	top:0px;
+
+
+}
+.opportunity-label{
+	text-align: center;
+	font-size: 16px;
+}
+.opportunity-detail{
+	font-size: 22px;
+}
+.opportunity-population-detail{
+	font-size:xx-large;
+	vertical-align:center;
+	height:100%;
+}
+.opportunity-snapshot-chart{
+	display:inline-block;
+	width:800px;
+	height:360px;
+}
+.opportunity-workit{
+	min-height: 200px;
+	max-height: 200px;
+	min-width: 200px;
+	max-width: 200px;
+	padding:50px;
+}
+.opportunity-lets-go{
+	min-height: 200px;
+	max-height: 200px;
+	min-width: 200px;
+	max-width: 200px;
+	padding:50px;
+
+}
+body {
+  font-family: "panameraregular", Helvetica, Arial, sans-serif;
+}
+h1,
+h2,
+h3,
+h4 {
+  font-family: "panameraregular", Helvetica, Arial, sans-serif;
+  text-transform: uppercase;
+  color: #3e5658;
+}
+p.lead, h2.alt, h3.alt{
+  font-family: "youngserifregular", Georgia, serif;
+}
+p.lead{
+  color: #B25370;
+}
+h2.alt{
+  color: #B25370;
+  text-transform: none;
+}
+.location-name-holder{
+  display:inline-block;
+  padding:10px;
+  padding-left:1000px;
+  margin-left:-1000px;
+  background-color:rgba(62,86,88,0.66);
+}
+.location-name-holder h2{
+  color:#e5f4f4;
+  margin:0;
+}
+
+.activity-trends {
+	width: 100% !important;
+    max-width: 800px;
+    height: auto !important;
+}
+
+.opportunity-snapshot-chart {
+	width: 100% !important;
+    max-width: 800px;
+    height: auto !important;
+}
+h1.map-title{
+  font-size:18px;
+}

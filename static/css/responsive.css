@@ -1,0 +1,26 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+.mini-map-box{
+display:none;
+}
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .mini-map-box{
+    display:block;
+    height:150px;
+    width: 150px;
+    margin:-20px auto;
+  }
+}
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+
+}

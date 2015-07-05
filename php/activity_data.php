@@ -1,0 +1,57 @@
+<?php
+header('Content-Type: text/json');
+include ('_dbconntect.php');
+
+// Base JSON array
+$result = array(
+	'name' => 'flare',
+	'children' => array(),
+);
+
+// Get the TLA ID
+$tla_id = isset($_GET ['tla']) ? $_GET ['tla'] : '';
+if (!$tla_id) {
+	// Missing or empty TLA ID
+	echo json_encode($result);
+	exit;
+}
+
+// Get the activites for the TLA
+$st = $db->prepare("SELECT * FROM Activity_By_Region WHERE TLA_ID = ? AND (ICON is not null AND ICON not like '%blank%') order by VISITORS DESC LIMIT 10");
+$st->execute(array($tla_id));
+
+// Add the activities to the JSON array
+foreach ($st->fetchAll() as $activity) {
+
+	$trendSt = $db->prepare("SELECT * FROM activity_trend WHERE ACTIVITY_ID = ?");
+	$trendSt->execute(array($activity['ACTIVITY_ID']));
+
+    $color = "#565f61";
+	foreach ($trendSt->fetchAll() as $trend) {
+		if (strpos($trend['TREND'], "No") !== false) {
+			$color = "#401432";
+		}
+		if (strcmp($trend['TREND'], "High") == 0) {
+			$color = "#78A786";
+		} 
+		
+	}
+
+	$activityData = array(
+		'name' => $activity['ICON'], // icon
+		'children' => array(
+			array(
+				'name' => $activity['ACTIVITY'], // label that displays
+				'size' => $activity['VISITORS'],
+				'icon' => is_null($activity['ICON']) ? '' : $activity['ICON'],
+				'id' => $activity['ACTIVITY_ID'],
+				'color' => $color
+			),
+		),
+	);
+	
+	$result['children'][] = $activityData;
+}
+
+// Output as a JSON string
+echo json_encode($result);
