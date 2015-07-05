@@ -139,6 +139,14 @@ h2.alt{
   margin-left:-1000px;
   background-color:rgba(62,86,88,0.66);
 }
+.location-name-holder-home{
+  display:inline-block;
+  padding:10px;
+  padding-left:30px;
+  padding-right:1000px;
+  margin-right:-1000px;
+  background-color:rgba(62,86,88,0.66);
+}
 .location-name-holder h2{
   color:#e5f4f4;
   margin:0;

@@ -7,6 +7,11 @@ foreach ($db->query('SELECT * FROM tla_digitalnz') as $row) {
 }
 shuffle($images);
 
+$images = array(
+	33531955,
+	31911455,
+	
+
 $digitalnz_caption = $digitalnz_image_url = $digitalnz_copyright = '';
 if ($images) {
 	$row = current($images);

@@ -86,7 +86,7 @@ include('_digitalnz.php');
 					<td>
 						<img src="/static/img/empty.png" alt="" class="img-circle" style="height:20px;width:20px;background-color:#401432">
 					</td>
-					<td>Low to no
+					<td>Low to none
 					</td>
 				</tr>
 			</table>

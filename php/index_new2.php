@@ -1,14 +1,23 @@
 <?php
 include ('_dbconntect.php');
 include ('_header.php');
+include('_digitalnz_any.php');
 ?>
 
-<div class="container">
-	<div class="row">
+
+<div class="jumbotron" style="background-image:url(<?= $digitalnz_image_url; ?>);background-size:cover;background-position:center center;">
+	<div class="container">
 		<div class="col-xs-3 col-xs-offset-7">
-			<h1><img src="/static/img/tourismBizKitLogo.png" class="img-responsive" alt="Gate 5B Tourism BizKit"></h1>
+			<div class="location-name-holder-home">
+				<h1><img src="/static/img/tourismBizKitLogoInv.png" class="img-responsive" alt="Gate 5B Tourism BizKit"></h1>
+			</div>
+		</div>
+		<div class="col-xs-3">
 		</div>
 	</div>
+</div>
+
+<div class="container">
 		<div class="row">
 		<div class="col-sm-4 col-sm-offset-2">
 			<h2 class="alt">Your Tourism Business <span style="font-size:150%;display:block;">Gateway</span></h2>
