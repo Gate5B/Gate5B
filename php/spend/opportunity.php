@@ -25,7 +25,8 @@ foreach ($st->fetchAll() as $forecast ) {
 
 
 // Visitors From by Region
-$sqlStr ='SELECT T.COUNTRY_NAME, SUM(T.VISITORS) VISITORS, SUM(F.VISITORS) VISITORS_2018 FROM IVS_TLA T LEFT JOIN IVS_Origin_Forecast F ON T.TLA_ID = F.TLA_ID and T.COUNTRY_ID = F.COUNTRY_ID where T.tla_id = 63 and year(T.YEAR_END) = 2015 GROUP by T.COUNTRY_NAME ORDER BY T.VISITORS DESC';
+$sqlStr ='SELECT T.COUNTRY_NAME, SUM(T.VISITORS) VISITORS, SUM(F.VISITORS) VISITORS_2018 FROM IVS_TLA T LEFT JOIN IVS_Origin_Forecast F ON T.TLA_ID = F.TLA_ID and T.COUNTRY_ID = F.COUNTRY_ID where T.tla_id = ? and year(T.YEAR_END) = 2015 GROUP by T.COUNTRY_NAME ORDER BY T.VISITORS DESC';
+//$sqlStr ="SELECT T.COUNTRY_NAME, SUM(T.VISITORS) VISITORS, SUM(F.VISITORS) VISITORS_2018 FROM IVS_TLA T LEFT JOIN IVS_TLA F ON T.TLA_ID = F.TLA_ID and T.COUNTRY_ID = F.COUNTRY_ID where T.tla_id = ? and year(T.YEAR_END) = '2013-03-01' GROUP by T.COUNTRY_NAME ORDER BY T.VISITORS DESC";
 
 $st = $db->prepare ($sqlStr);
 $st->execute ( array (
@@ -93,7 +94,8 @@ foreach ($st->fetchAll() as $activity ) {
 <div class="col-md-10 col-md-offset-1">
 	<h2>Tourism in your region</h2>
 </div>
-<div class="opportunity-panel col-md-4">
+<div class="col-md-10 col-md-offset-1">
+<div class="opportunity-panel">
 	<h3 class="opportunity-panel-title">Visitors</h3>
 	<ul class="info-box">
 		<li>
@@ -104,11 +106,17 @@ foreach ($st->fetchAll() as $activity ) {
 			<div class="opportunity-label">2018</div>
 			<div class="opportunity-detail"><?php
 				//$percentage = round((($result['visitor_growth']-$result['visitor_num'])/$result['visitor_num'])*100, 2);
-				$percentage = round((($result['visitor_growth']-$result['visitor_num'])/$result['visitor_growth'])*100, 2);
-				if($percentage>0)
-					echo '+';
-				echo  number_format ($percentage) ;
-			?> %</div>
+				$percentage = round((($result['visitor_num']-$result['visitor_growth'])/$result['visitor_growth'])*100, 2);
+				$class_type = 'red';
+				$sign = '';
+				if($percentage>0){
+					$sign = '+';
+					$class_type = 'green';
+				}
+				echo "<span class='indicator-".$class_type."'>";
+				echo  $sign .number_format ($percentage) ;
+				echo "%</span>";
+			?></div>
 		</li>
 	</ul>
 	<div class="col-xs-12">
@@ -117,9 +125,7 @@ foreach ($st->fetchAll() as $activity ) {
 </div>
 
 <div class="opportunity-panel">
-
-	<div class="opportunity-panel-title">Average Stay (NZ)</div>
-		<div style="min-width:100%">
+	<h3 class="opportunity-panel-title">Average Stay</h3>
 		<ul class="info-box">
 			<li>
 				<div class="opportunity-label">2015</div>
@@ -127,10 +133,9 @@ foreach ($st->fetchAll() as $activity ) {
 			</li>
 			<li>
 				<div class="opportunity-label">2018</div>
-				<div class="opportunity-detail">+1 %</div>
+				<div class="opportunity-detail"><span class="indicator-green">+1 %</span></div>
 			</li>
 		</ul>
-		</div>
 		<div style="min-width:100%; display:none;">
 			<ul class="info-box opportunity-stay">
 
@@ -147,14 +152,17 @@ foreach ($st->fetchAll() as $activity ) {
 				?>
 			</ul>
 		</div>
+		<div class="col-xs-12">
+			<p class="small text-muted">Average number of nights stayed in NZ by visitors and forecasted % change in 2018</p>
+		</div>
 </div>
 
 <div class="opportunity-panel">
 
-	<div class="opportunity-panel-title">From</div>
+	<h3 class="opportunity-panel-title">Come from</h3>
 	<table class="opportunity-from-table" style="width:100%">
 		<tr>
-			<th>Top 5 Origins</th>
+			<th>Top 5</th>
 			<th>2015</th>
 			<th>2018</th>
 		</tr>
@@ -164,23 +172,33 @@ foreach ($st->fetchAll() as $activity ) {
 		?>
 		<tr>
 			<td><?php echo  $origin['origin'] ?></td>
-			<td><?php echo  number_format (round($origin['number']/1000, 0)) ?> K</td>
+			<td><?php echo  number_format (round($origin['number']/100, 0)) ?> K</td>
 			<td><?php
-				$percentage = round((($origin['forecast']-$origin['number'])/$origin['number'])*10, 0);
-				if($percentage>0)
-					echo '+';
-				echo  number_format ($percentage) ;
-			?> %</td>
+				$percentage = round((($origin['forecast']-$origin['number'])/$origin['number'])*100, 0);
+
+				$class_type = 'red';
+				$sign = '';
+				if($percentage>0){
+					$sign = '+';
+					$class_type = 'green';
+				}
+				echo "<span class='indicator-".$class_type."'>";
+				echo  $sign .number_format ($percentage) ;
+				echo "%</span>";
+			?></td>
 		</tr>
 		<?php
 			}
 		?>
 	</table>
+	<div class="col-xs-12">
+		<p class="small text-muted">Top five places where tourists have come and future view of growth in 2018</p>
+	</div>
 </div>
 
 <div class="opportunity-panel">
 
-	<div class="opportunity-panel-title">Spend</div>
+	<h3 class="opportunity-panel-title">Spend</h3>
 	<ul class="info-box">
 		<li>
 			<div class="opportunity-label">2014</div>
@@ -190,11 +208,20 @@ foreach ($st->fetchAll() as $activity ) {
 			<div class="opportunity-label">2018</div>
 			<div class="opportunity-detail"><?php
 				$percentage = round((($result['spend_forecast']-$result['spend_num'])/$result['spend_num'])*100, 2);
-				if($percentage>0)
-					echo '+';
-				echo  number_format ($percentage) ;
-				//echo 'XXX'.$result['spend_forecast'] . ' ' . $result['spend_num'];
-			?> %</div>
+				$class_type = 'red';
+				$sign = '';
+				if($percentage>0){
+					$sign = '+';
+					$class_type = 'green';
+				}
+				echo "<span class='indicator-".$class_type."'>";
+				echo  $sign .number_format ($percentage) ;
+				echo "%</span>";
+			?></div>
 		</li>
 	</ul>
+	<div class="col-xs-12">
+		<p class="small text-muted">Total annual spend in the region and forecasted % change in 2018</p>
+	</div>
+</div>
 </div>

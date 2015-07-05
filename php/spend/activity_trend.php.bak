@@ -1,7 +1,7 @@
 <?php
 	if (isset($_GET['activity'])) {
 		$activity_id =  $_GET['activity'];
-		$st = $db->prepare("SELECT * FROM Activity_By_Region WHERE ACTIVITY_ID = ? AND (ICON is not null AND ICON not like '%blank%) LIMIT 1");
+		$st = $db->prepare("SELECT * FROM Activity_By_Region WHERE ACTIVITY_ID = ? AND (ICON is not null AND ICON not like '%blank%') LIMIT 1");
 		$st->execute(array($activity_id));
 
 		$name = "";
@@ -29,8 +29,11 @@
 
 
 ?>
+	<div class="row">
+		<div class="col-md-12"><hr /></div>
+	</div>
 <div class="col-md-offset-1 col-md-10">
-	<h2>Trend Setter</h2>
+	<h2>Is the activity becoming more popular?</h2>
 </div>
 <div id="activity-trend" class="col-md-2 col-md-offset-1">
 	<div id="activity-icon">
@@ -38,6 +41,7 @@
 	</div>
 </div>
 <div class="col-md-8">
+	<p class="text-muted">The growth of the activity over the past 3 year based on visitor numbers</p>
 	<canvas id="activity-trend-panel" class="activity-trends" ></canvas>
 </div>
 

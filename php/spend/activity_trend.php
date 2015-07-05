@@ -29,8 +29,11 @@
 
 
 ?>
+	<div class="row">
+		<div class="col-md-12"><hr /></div>
+	</div>
 <div class="col-md-offset-1 col-md-10">
-	<h2>Trend Setter</h2>
+	<h2>Is the activity becoming more popular?</h2>
 </div>
 <div id="activity-trend" class="col-md-2 col-md-offset-1">
 	<div id="activity-icon">
@@ -38,6 +41,7 @@
 	</div>
 </div>
 <div class="col-md-8">
+	<p class="text-muted">The growth of the activity over the past 3 year based on visitor numbers</p>
 	<canvas id="activity-trend-panel" class="activity-trends" ></canvas>
 </div>
 
@@ -45,6 +49,10 @@
 <script>
 
 	function activityTrend() {
+		try
+		{
+		
+		
 		var trendData = {
 			labels: [],
 			datasets: [{
@@ -94,6 +102,11 @@
 						return tooltip.style("visibility", "visible"); })
 					.on("mousemove", function(){return tooltip.style("top", (event.pageY-10)+"px").style("left",(event.pageX+10)+"px");})
 					.on("mouseout", function(){return tooltip.style("visibility", "hidden");});
+		}
+		catch (e)
+		{
+			//ignore
+		}
 
 	}
 </script>

@@ -20,9 +20,9 @@ include ('_header.php');
 					</ul>
 				</p>
 
-				<p>Where are they coming from?  Where are they going? What do they do? What areas are growing?</p>
+				<p>Where are the tourists coming from?  Where are they going? What do they do? What areas are growing?</p>
 
-			<h4 class="text-center" style="margin-top:50px;">Tell us where you want to launch your business <span class="hidden-xs">&rarr;</span><span class="visible-xs-inline">&darr;</span></h4>
+			<h4 class="text-center" style="margin-top:50px; color:#b15470;">Select a region on the map where you want to launch your business <span class="hidden-xs">&rarr;</span><span class="visible-xs-inline">&darr;</span></h4>
 
 		</div>
 

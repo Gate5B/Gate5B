@@ -22,7 +22,7 @@ include('_digitalnz.php');
     <div class="navbar-header">
 			<div class="col-sm-4 col-xs-6 ">
 				<ul class="nav navbar-nav">
-	        <li><a href="/activity/<?php echo $tla_id; ?>/<?php echo $tla['name']; ?>">&larr; Back</a></li>
+	        <li><a href="/activity/<?php echo $tla_id; ?>/<?php echo $tla['name'] ?>">&larr; Back</a></li>
 				</ul>
 		</div>
 			<div class="col-sm-4 col-sm-offset-3 col-xs-6 ">
@@ -41,8 +41,7 @@ include('_digitalnz.php');
 			</div>
 		</div>
 		<div class="col-xs-3">
-			<div id="map-canvas" class="mini-map-box"></div>
-			<?php include('_mini_map.php'); ?>
+
 		</div>
 	</div>
 </div>
@@ -50,29 +49,32 @@ include('_digitalnz.php');
 <div class="container main">
 		<div class="row">
 
-			<div>
 			<?php
 			include ('spend/opportunity.php');
 			?>
-			</div>
 	</div>
+
 	<div class="row">
 			<?php
 			include ('spend/activity_trend.php');
 			?>
 	</div>
 	<div class="row">
+		<div class="col-md-12"><hr /></div>
+	</div>
+	<div class="row">
 		<div class="col-md-10 col-md-offset-1">
-			<h2>Snapshot</h2>
+			<h2>Population and current tourism operators</h2>
 		</div>
 		<div class="col-md-2 col-md-offset-1">
 			<?php
 			include ('spend/population.php');
 			?>
 		</div>
-		<div class="col-md-8">
-			<h4>Tourism businesses in the region</h4>
+		<div class="col-md-8" style="border-left: 1px solid #eeeeee;">
+			<p class="text-muted">Region population and the current types and number of tourism operators in your area*</p>
 			<canvas id="myChart" class="opportunity-snapshot-chart" ></canvas>
+			<p class="text-muted small">* Data based on <a href="http://newzealand.com" target="_blank">newzealand.com</a> data on New Zealand tourism operations </p>
 		</div>
 	</div>
 	<div class="row">
@@ -118,12 +120,17 @@ include('_digitalnz.php');
 			var ctx = $("#myChart").get(0).getContext("2d");
 
 			var myBarChart = new Chart(ctx).Bar(data);
+			// myBarChart.redraw();
 		});
 	}
 
 	function pageLoad() {
 		snapshotChart();
-		activityTrend();
+		if (typeof activityTrend === 'function')
+		{
+			activityTrend();
+		}
+		
 	}
 
 

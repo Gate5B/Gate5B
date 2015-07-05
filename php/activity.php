@@ -16,7 +16,22 @@ include ('_header.php');
 include('_digitalnz.php');
 
 ?>
-
+<nav class="navbar navbar-inverse navbar-bizkit">
+  <div class="container">
+    <div class="navbar-header">
+			<div class="col-sm-4 col-xs-6 ">
+				<ul class="nav navbar-nav">
+	        <li><a href="/">&larr; Back</a></li>
+				</ul>
+		</div>
+			<div class="col-sm-4 col-sm-offset-3 col-xs-6 ">
+      <a class="navbar-brand" href="#">
+        <img alt="TouristBizKit" src="/static/img/tourismBizKitLogoHdr.png" class="img-responsive">
+      </a>
+		</div>
+    </div>
+  </div>
+</nav>
 <!--<div class="container">
 	<div class="row">
 		<div class="col-xs-3">
@@ -35,14 +50,12 @@ include('_digitalnz.php');
 			</div>
 		</div>
 		<div class="col-xs-3">
-			<div id="map-canvas" class="mini-map-box"></div>
-			<?php include('_mini_map.php'); ?>
 		</div>
 	</div>
 </div>
 	<div class="container main">
 
-		<h3>Popular tourist attractions</h3>
+		<h3>Popular tourist attractions*</h3>
 
 		<div class="row">
 			<div class="col-sm-9 text-center">
@@ -83,7 +96,7 @@ include('_digitalnz.php');
 
 
 		<div class="row">
-			<div class="col-md-6 col-md-offset-3">
+			<div class="col-md-8 col-md-offset-2">
 				<h4>Other popular attractions:</h4>
 
 				<?php
@@ -99,7 +112,8 @@ include('_digitalnz.php');
 					}
 					echo "</table>";
 				?>
-								<button type="button" class="btn btn-link btn-sm" id="view-region-btn">Can't find an activity to kick-start your interest? Find out more about the tourism market in your area here.</button>
+								<button type="button" class="btn btn-link" style="white-space: normal;" id="view-region-btn">Can't find an activity to kick-start your interest? Find out more about the tourism market in your area here &rarr;</button>
+			<p>* Analysis based on data from <a href="http://www.med.govt.nz" target="_blank">2013 International Visitor Survey from Ministry of Business, Innovation and Employment survey</a>.</p>
 			<p class="visible-xs visible-sm text-muted small" style="margin-top:10px;">Photo &copy; <?= $digitalnz_copyright; ?></p>
 			</div>
 		</div>
@@ -142,7 +156,7 @@ include('_digitalnz.php');
 					.attr("class", "node")
 					.attr("transform", function(d) { return "translate(" + d.x + "," + d.y + ")"; });
 
-				node.append("title").text(function(d) {return d.className; });
+				/*node.append("title").text(function(d) {return d.className; });*/
 
 				node.append("circle")
 					.attr("r", function(d) { return d.r; })
