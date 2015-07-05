@@ -161,3 +161,8 @@ h1.map-title{
   background-image:none;
   border-width:0;
 }
+
+.navbar-bizkit li a{
+  text-shadow: 0 !important;
+  color:#e4ede7 !important;
+}

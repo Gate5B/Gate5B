@@ -47,13 +47,6 @@ include('_digitalnz.php');
 </div>
 
 <div class="container main">
-		<div class="row">
-
-			<?php
-			include ('spend/opportunity.php');
-			?>
-	</div>
-
 	<div class="row">
 			<?php
 			include ('spend/activity_trend.php');
@@ -63,20 +56,30 @@ include('_digitalnz.php');
 		<div class="col-md-12"><hr /></div>
 	</div>
 	<div class="row">
-		<div class="col-md-10 col-md-offset-1">
-			<h2>Population and current tourism operators</h2>
-		</div>
-		<div class="col-md-2 col-md-offset-1">
+		<div class="col-md-2 col-md-offset-1 text-center">
+			<h4 class="text-center">Population</h4>
 			<?php
 			include ('spend/population.php');
 			?>
 		</div>
 		<div class="col-md-8" style="border-left: 1px solid #eeeeee;">
+						<h2>Current tourism operators</h2>
 			<p class="text-muted">Region population and the current types and number of tourism operators in your area*</p>
 			<canvas id="myChart" class="opportunity-snapshot-chart" ></canvas>
 			<p class="text-muted small">* Data based on <a href="http://newzealand.com" target="_blank">newzealand.com</a> data on New Zealand tourism operations </p>
 		</div>
 	</div>
+	<div class="row">
+		<div class="col-md-12"><hr /></div>
+	</div>
+		<div class="row">
+
+			<?php
+			include ('spend/opportunity.php');
+			?>
+	</div>
+
+
 	<div class="row">
 		<!--h2>Call to market</h2-->
 			<?php
@@ -130,7 +133,7 @@ include('_digitalnz.php');
 		{
 			activityTrend();
 		}
-		
+
 	}
 
 

@@ -29,9 +29,7 @@
 
 
 ?>
-	<div class="row">
-		<div class="col-md-12"><hr /></div>
-	</div>
+
 <div class="col-md-offset-1 col-md-10">
 	<h2>Is the activity becoming more popular?</h2>
 </div>
